@@ -1,0 +1,418 @@
+﻿#home {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    aspect-ratio: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+}
+
+.hero-section {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    padding: 3rem;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    /*    flex-direction: column;*/
+}
+
+.leftSide {
+    flex: 0 1 auto;
+}
+
+.rightSide {
+    flex: 0 1 auto;
+}
+
+.leftSide {
+    width: 50%;
+    min-width: 400px;
+    max-width: 400px;
+    height: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem;
+    margin-left: min(10px,2%);
+}
+
+.social-cv,
+.professional-intro,
+.personal-intro {
+    display: flex;
+    justify-content: flex-start;
+    text-align: start;
+}
+
+#short-desc {
+    width: 100%;
+}
+
+
+.hero-section div,
+.hero-section span,
+.hero-section i {
+    color: var(--hero-i-color);
+}
+
+
+.download-btn i {
+    color: var(--light-highlight);
+}
+
+.personal-intro {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.animated-text {
+    /*    font-size: 2rem;*/
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(to right,var(--text-anime-color),var(--text-anime-color), #3b82f6,#284c88, #3b82f6,var(--text-anime-color));
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.profile-img {
+    height: 5.2rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    z-index: 0;
+    background: var(--img-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease 0.5s;
+    /*    border: 2px solid var(--img-border);*/
+}
+
+#profile-img {
+    height: 5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: var(--pointer-url),auto;
+    overflow: hidden;
+    /*    border: 2px solid var(--img-border);*/
+    transition: ease 0.5s;
+    z-index: 1;
+}
+
+.profile-img:hover {
+    background: conic-gradient(from var(--angle), transparent 0% 27.5%, var(--border-anime-color) 33% 40%, transparent 45% 77.5%, var(--border-anime-color) 83% 90%, transparent 95% 100%);
+    animation: rotation 3s infinite linear forwards;
+}
+
+
+.hero-section i {
+    cursor: var(--pointer-url),auto;
+    transition: all 0.3s ease;
+}
+
+.name-location h1 {
+    font-size: var(--font-heading);
+}
+
+.name-location span {
+    font-size: var(--font-subheading);
+    color: var(--base-text-color);
+}
+
+.social-cv {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+    .social-cv i {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5rem;
+        transition: color 0.3s, transform 0.3s;
+        line-height: 1;
+    }
+
+.fab:hover, .fa-location-dot:hover {
+    color: var(--hero-i-highlight);
+    scale: 1.2;
+    box-shadow: 2px 2px 5px 0 var(--base-text-color);
+    border-radius: 50%;
+}
+
+
+
+
+.rightSide {
+    max-width: 400px;
+    padding: 0;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.code-card {
+    width: 400px;
+    height: 320px;
+    background-color: var(--code-card-bg);
+    border: 1px solid #757d87;
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: var(--code-card-text);
+    font-family: 'Courier New', Courier, monospace;
+/*    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);*/
+    line-height: 0;
+    font-size: 0.9rem;
+    position: relative;
+    cursor: var(--pointer-url),auto;
+}
+    .code-card p,.move {
+        color: var(--code-card-text);
+    }
+
+    @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+.code-card::before,
+.code-card::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    z-index: -1;
+    inset: -4px;
+    /*     background: red; */
+}
+
+@keyframes rotation {
+    from {
+        --angle: 0deg
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+.code-card:hover::before,
+.code-card:hover::after {
+    background: conic-gradient(from var(--angle), transparent 0% 27.5%, var(--border-anime-color) 33% 40%, transparent 45% 77.5%, var(--border-anime-color) 83% 90%, transparent 95% 100%);
+    animation: rotation 3s infinite linear forwards;
+}
+
+.code-card .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.code {
+    min-width: 320px;
+}
+
+.header {
+    margin-bottom: 1rem;
+}
+
+.code-card .circles {
+    display: flex;
+    gap: 6px;
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #ff5f56;
+}
+
+.yellow {
+    background-color: #ffbd2e;
+}
+
+.green {
+    background-color: #27c93f;
+}
+
+.comment {
+    color: #8b949e;
+}
+
+.const {
+    color: #c792ea;
+}
+
+.key {
+    color: #ffcb6b;
+}
+
+.string {
+    color: #a5d6ff;
+}
+
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px) scale(0.96);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(8px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(60px) scale(0.96);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(-8px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Animation classes to trigger the effect */
+.leftSide.animated {
+    animation: slideInLeft 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.rightSide.animated {
+    animation: slideInRight 2s 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.download-btn {
+    text-decoration: none;
+    border: 2px solid var(--base-text-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    background: var(--body-bg-color);
+    color: var(--light-highlight);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: var(--pointer-url),auto;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+    .download-btn:hover {
+        transform: scale(1.05);
+        border-color: var(--hero-i-highlight);
+        color: var(--base-text-color);
+        box-shadow: 0 0 5px 1px var(--hero-i-highlight);
+    }
+
+    /* Glow Ring Effect on Hover */
+    .download-btn::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(from 0deg, transparent 0%, var(--border-anime-color) 10%, transparent 20%, var(--border-anime-color) 30%, transparent 40%, var(--border-anime-color) 50%, transparent 60%, var(--border-anime-color) 70%, transparent 80%, var(--border-anime-color) 90%, transparent 100%);
+        animation: rotate-glow 4s linear infinite;
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .download-btn:hover::before {
+        opacity: 0.3;
+    }
+
+@keyframes rotate-glow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Ensure content stays on top of ::before */
+.download-btn * {
+    z-index: 1;
+    position: relative;
+}
+
+/*
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 1.5rem 1rem;
+    }
+
+    #profile-img {
+        height: 4rem;
+    }
+
+    .name-location h1 {
+        font-size: 1.5rem;
+    }
+
+    .name-location span {
+        font-size: 1rem;
+    }
+}*/
+/*@media (max-width: 1300px) {
+    .hero-section {
+        width: 80%;
+    }
+
+    .right {
+        scale: 0.8;
+    }
+}*/
+

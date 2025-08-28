@@ -1,0 +1,395 @@
+﻿/* footer */
+.footer {
+    background-color: var(--footer-bg-color); /* dark blue-gray */
+    color: var(--footer-text-color); /* soft light text */
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    width: 100%;
+    box-shadow: 0 -2px 8px var(--footer-box-shadow);
+    background: transparent;
+    height: var(--footer-height);
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--footer-height); /* or 80px, etc. */
+}
+
+    .footer p {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--darker-base-text-color);
+    }
+
+/*.footer a, .footer p {
+        color: var(--dark-highlight);*/ /* light blue for links */
+/*text-decoration: none;
+    }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }*/
+
+/* canvas */
+#note {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#MainContentPlaceHolder_ucNote_up2 {
+    width: 80vw;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbar {
+    width: 100%;
+    max-width: 780px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: var(--canvas-topbar-bg);
+    padding: 10px 24px;
+    gap: min(16px,3%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border: 2px var( --notes-board-border) solid;
+}
+
+.container, .topbar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .topbar .icon {
+        font-size: 24px;
+        color: var(--base-text-color);
+    }
+
+
+
+.counter {
+    color: var(--base-text-color);
+    background: var(--canvas-counter-bg);
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 16px;
+    margin-right: 16px;
+}
+
+#openNoteBtn {
+    margin-left: auto;
+    background: var(--canvas-notebtn-bg);
+    border: 1px solid var(--canvas-notebtn-border);
+    color: var(--base-text-color);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 16px;
+    cursor: var(--pointer-url),auto;
+    transition: background 0.2s;
+}
+
+    #openNoteBtn:hover {
+        background: var(--open-note-btn-hover);
+    }
+
+.notes-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 30px 40px 60px 40px;
+    min-height: 60vh;
+    background: repeating-linear-gradient( 0deg, #222 0 1px, transparent 1px 40px ), repeating-linear-gradient( 90deg, #222 0 1px, transparent 1px 40px );
+    background: var(--notes-board-bg);
+    border: 2px var( --notes-board-border) solid;
+    height: 60vh;
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-card {
+    /*    height: 200px;
+    width: 200px;*/
+    background: var(--note-card-bg);
+    border-radius: 5px;
+    box-shadow: 0 3px 10px 0 var(--notes-card-box);
+    width: 180px;
+    padding: 12px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transform: rotate(var(--rot));
+    transition: box-shadow 0.2s;
+}
+
+    .note-card:hover {
+        box-shadow: 0 8px 32px var(--notes-card-hover);
+        background: var(--canvas-topbar-bg);
+        color: white;
+        z-index: 2;
+    }
+
+    .note-card canvas {
+        width: 170px;
+        height: 150px;
+        background: #fff; /**/
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 6px #0005; /**/
+    }
+
+.note-name {
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--note-name-color);
+    margin-bottom: 2px;
+    align-self: flex-start;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.note-msg {
+    font-size: 13px;
+    color: var(--note-msg-color);
+    text-align: center;
+    margin-bottom: 2px;
+    align-self: flex-start;
+    text-align: left;
+    margin-left: 5px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1010;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--modal-bg);
+    justify-content: center;
+    align-items: center;
+}
+
+    .modal.show {
+        display: flex;
+    }
+
+.modal-content {
+    background: var(--modal-content-bg);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px var(--modal-content-box);
+    padding: 24px 24px 18px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    max-width: 98vw;
+    position: relative;
+}
+
+.draw-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.color-palette {
+    display: flex;
+    gap: 4px;
+}
+
+.color-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--color-btn-border);
+    cursor: var(--pointer-url),auto;
+    outline: none;
+    margin-right: 2px;
+    transition: border 0.1s;
+}
+
+    .color-btn.selected, .color-btn:focus {
+        border: 2px solid var(--color-btn-hover);
+    }
+
+#color-picker {
+    appearance: none; /* Remove default browser style */
+    -webkit-appearance: none; /* Safari/Chrome */
+    border: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: var(--pointer-url),auto;
+    background: none;
+    overflow: hidden;
+}
+
+    /* Optional: Remove inner border in WebKit browsers */
+    #color-picker::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+
+    #color-picker::-webkit-color-swatch {
+        border: none;
+        border-radius: 50%;
+    }
+
+.tool-btn {
+    background: var(--tool-btn-bg);
+    color: var(--tool-btn-color);
+    border: 1px solid var(--tool-btn-border);
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 2px 7px;
+    cursor: var(--pointer-url),auto;
+    margin-left: 2px;
+    transition: background 0.2s;
+}
+
+    .tool-btn.active, .tool-btn:hover {
+        background: var(--tool-btn-hover);
+    }
+
+#brushSize {
+    width: 60px;
+    margin: 0 4px;
+}
+
+#brushDisplay {
+    font-size: 15px;
+    color: var(--brush-color);
+    margin-right: 4px;
+    width: 15px;
+}
+
+#drawCanvas {
+    background: #fff; /**/
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #000a; /**/
+    margin-bottom: 12px;
+    cursor: crosshair;
+    display: block;
+}
+
+#noteForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-top: 6px;
+}
+
+    #noteForm input {
+        width: 280px;
+        flex: 1;
+        padding: 7px 10px;
+        border-radius: 6px;
+        border: none;
+        font-size: 15px;
+        background: var(--name-msg-input-bg);
+        color: var(--name-msg-input-text);
+        outline: none;
+        border: 1px solid #333;
+    }
+
+.form-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.leave-btn {
+    background: var(--leave-btn-bg);
+    color: var(--leave-btn-text);
+    border: 2px solid var(--leave-btn-border);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 15px;
+    cursor: var(--pointer-url),auto;
+}
+
+
+
+.cancel-btn {
+    background: var(--cancel-btn-bg);
+    color: var(--cancel-btn-text);
+    border: 1px solid var(--cancel-btn-border);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 15px;
+    cursor: var(--pointer-url),auto;
+}
+
+.leave-btn:hover {
+    background: transparent;
+    border: 2px solid gray;
+}
+
+.cancel-btn:hover {
+    background: var(--cancel-btn-hover);
+}
+
+/* Dark Scrollbar Styling */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg-color);
+}
+
+/* Firefox */
+.container {
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-bg-color);
+    scrollbar-width: thin;
+}
+

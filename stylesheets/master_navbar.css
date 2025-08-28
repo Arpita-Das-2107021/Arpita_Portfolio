@@ -1,0 +1,354 @@
+﻿:root {
+    /*    fonts*/
+    --h2-font-size: 1.7rem;
+    --h3-font-size: 1.5rem;
+    --p-font-size: 0.95rem;
+    --span-font-size: 2rem;
+    /*    selection*/
+    --selection-color: #cdcdcd;
+    --selection-bg-color: #99cef;
+    /*navbar*/
+    --star-diameter: 2px;
+    --footer-height: 3.5rem;
+    --navbar-height: 3.5rem;
+    --navbar-active-color: var(--dark-highlight);
+    --navbar-highlight: var(--dark-highlight);
+    --navbar-bg-color: rgba(43, 43, 43, 0.8);
+    --navbar-border-color: rgba(172, 166, 166, 0.5);
+    /*    url*/
+    --cursor-url: url('/assets/cursor_blue_gradient_32.png');
+    --pointer-url: url("/assets/pointer_blue_filled_24.png");
+    /*    colors    */
+    --star-color: white;
+    --body-bg-color: #111;
+    --splash-bg-color: #111;
+    --base-text-color: white;
+    --darker-base-text-color: #b0b0b0;
+    --dark-highlight: #82B4FF; /* #67CEFA;  */
+    --light-highlight: #B2D3EB;
+    /*    home*/
+    --text-anime-color: #98b8ec;
+    --border-anime-color: blue;
+    --code-card-bg: #161b22;
+    --code-card-text: #c9d1d9;
+    --hover-rgba: rgba(255, 255, 255, 0.1); /*gray*/
+    --img-border: gray;
+    --hero-i-color: var(--dark-highlight);
+    --hero-i-highlight: white;
+    /*            skills*/
+    --my-skill-edu-text: var(--light-highlight);
+    --tech-card-bg: #1a1a1a;
+    --tech-icon-border: rgb(52, 50, 50);
+    /*            education*/
+    --tab-text-active: var(--base-text-color);
+    --education-box-bg: #1a1a1a;
+    --education-tab-bg: #1e1e1e;
+    --tab-btn-active: var(--dark-highlight);
+    --education-tick-bg: #0f0f0f;
+    --education-vertical-line: var(--dark-highlight);
+    --education-link-color: #88aaff;
+    --education-link-hover: #78c7e2;
+    --education-link-visited: #9ecada;
+    --scrollbar-thumb-color: #444;
+    --scrollbar-bg-color: transparent; /*#1a1a1a;;*/
+    /*contact*/
+    --contact-text: var(--dark-highlight);
+    --contact-card-bg: var(--dark-highlight);
+    --contact-card-btn-bg: #657bbe;
+    --contact-i-color: var(--hero-i-color);
+    --contact-i-highlight: var(--hero-i-highlight);
+    --contact-btn-hover: #8493c2;
+    /*            contact*/
+    --footer-bg-color: #1e293b;
+    --footer-text-color: #cbd5e1;
+    --footer-box-shadow: rgba(0, 0, 0, 0.1);
+    --canvas-topbar-bg: #232426;
+    --canvas-counter-bg: #2c2d31;
+    --canvas-notebtn-bg: #232426;
+    --canvas-notebtn-border: #333;
+    --open-note-btn-hover: var(--canvas-notebtn-border);
+    --notes-board-bg: rgba(20,21,23,0.5);
+    --notes-board-border: #222;
+    --notes-card-bg: #232426;
+    --notes-card-box: #000a;
+    --notes-card-hover: #000c;
+    --note-name-color: gray;
+    --note-msg-color: #f3f4f6;
+    --modal-bg: rgba(20,21,23,0.88);
+    --modal-content-bg: #222326;
+    --modal-content-box: #000e;
+    --color-btn-border: #444;
+    --color-btn-hover: #fff;
+    --tool-btn-bg: #232426;
+    --tool-btn-color: #fff;
+    --tool-btn-border: #333;
+    --tool-btn-hover: #38393d;
+    --brush-color: #facc15;
+    --name-msg-input-bg: #232426;
+    --name-msg-input-text: #fff;
+    --leave-btn-bg: gray;
+    --leave-btn-text: #fff;
+    --leave-btn-border: gray;
+    --cancel-btn-bg: #232426;
+    --cancel-btn-text: #fff;
+    --cancel-btn-border: #333;
+    --cancel-btn-hover: rgba(99, 93, 93,0.5);
+}
+/*rgb(28, 16, 101)*/
+.light-theme {
+    --selection-bg-color: blueviolet;
+    --selection-color: white;
+    --star-diameter: 4px;
+    --splash-bg-color: #dfe6ec;
+    --star-color: blue;
+    --body-bg-color: #bfc9d4;
+    /*    url*/
+    --cursor-url: url('/assets/cursor_pink_24.png');
+    --pointer-url: url("/assets/pointer_pink_24.png");
+    /*   #abb8eb     */
+    --base-text-color: #014470;
+    --darker-base-text-color: #035082;
+    --dark-highlight: gray;
+    --light-highlight: #82B4FF;
+    /*    navbar*/
+    --navbar-bg-color: #c4d0d8;
+    --navbar-active-color: rgb(0, 0, 240);
+    --navbar-highlight: #b34bba;
+    --navbar-border-color: gray; /* no color looks nice*/
+    /*    home*/
+    --text-anime-color: #f161eb;
+    --code-card-bg: #657bbe;
+    --code-card-text: white;
+    --border-anime-color: #f161eb;
+    /*        #dfe6ec;*/
+    --hover-rgba: transparent; /*    gray*/
+    --img-border: white;
+    --hero-i-color: var(--base-text-color);
+    --hero-i-highlight: #ae63b9;
+    /*    skills*/
+    --my-skill-edu-text: blueviolet;
+    --tech-card-bg: #8493c2;
+    --tech-icon-border: blue;
+    /*    education*/
+    --education-box-bg: #9ca9d1;
+    --education-tab-bg: #88afea;
+    --tab-btn-active: #657bbe;
+    --tab-text-active: white;
+    --education-tick-bg: #b8c9d4;
+    --education-vertical-line: #657bbe;
+    --education-link-color: aliceblue;
+    --education-link-hover: #e20792;
+    --education-link-visited: rgb(0, 0, 240);
+    --scrollbar-thumb-color: #b8c9d4;
+    --scrollbar-bg-color: transparent;
+    /*contact*/
+    --contact-text: white;
+    --contact-card-bg: #8493c2;
+    --contact-card-btn-bg: #657bbe;
+    --contact-btn-hover: var(--hero-i-highlight);
+    --contact-i-color: var(--hero-i-color);
+    --contact-i-highlight: var(--hero-i-highlight);
+    /*    canvas*/
+    --footer-bg-color: transparent;
+    --footer-text-color: var(--darker-base-text-color);
+    --footer-box-shadow: rgba(0, 0, 255, 0.1); /* red tone */
+    --canvas-topbar-bg: #657bbe;
+    --canvas-counter-bg: #b8c9d4;
+    --canvas-notebtn-bg: #c8dbe8;
+    --canvas-notebtn-border: var(--darker-base-text-color);
+    --open-note-btn-hover: white;
+    --notes-board-bg: #9ca9d1;
+    --notes-board-border: transparent;
+    --notes-card-bg: var(--darker-base-text-color);
+    --notes-card-box: var(--darker-base-text-color);
+    --notes-card-hover: #979ce8;
+    --note-msg-color: var(--base-text-color);
+    --note-name-color: var(--darker-base-text-color);
+    --modal-bg: #c8dbe8;
+    --modal-content-bg: #8493c2;
+    --modal-content-box: #c8dbe8; /* pink tone */
+    --color-btn-border: white;
+    --color-btn-hover: blue;
+    --tool-btn-bg: #c8dbe8;
+    --tool-btn-color: white;
+    --tool-btn-border: white;
+    --tool-btn-hover: #657bbe;
+    --brush-color: white;
+    --name-msg-input-bg: #c8dbe8;
+    --name-msg-input-text: var(--darker-base-text-color);
+    --leave-btn-bg: #88afea;
+    --leave-btn-text: var(--darker-base-text-color);
+    --leave-btn-border: var(--darker-base-text-color);
+    --cancel-btn-bg: #c8dbe8;
+    --cancel-btn-text: var(--darker-base-text-color);
+    --cancel-btn-border: var(--darker-base-text-color);
+    --cancel-btn-hover: #88afea;
+}
+
+::selection{
+    background: var(--selection-bg-color);
+    color: var(--selection-color);
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: color 1s ease;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    /*    overflow-y: scroll;*/
+    display: block;
+    transition: color 1s ease;
+}
+
+body {
+    cursor: var(--cursor-url), auto;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    background: var(--body-bg-color);
+    position: relative;
+    display: block;
+    transition: color 1s ease;
+}
+
+.splash-screen, #splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    background: var(--splash-bg-color);
+    color: var(--base-text-color);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 1;
+    transition: opacity 1s ease;
+    display: none;
+}
+
+
+
+form[runat="server"] {
+    padding-top: calc(var(--navbar-height) * 20);
+    width: 100%;
+    max-height: calc(100vh - var(--navbar-height)*3);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* or flex-start */
+    justify-content: flex-start;
+    gap: calc( var(--navbar-height) * 3);
+    position: relative;
+    /*    overflow-y: scroll;*/
+    /*    background-color: green;*/
+
+    transition: color 0.8s ease;
+}
+
+
+h3 {
+    color: var(--base-text-color);
+    font-size: 1.7em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--base-text-color);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ p {
+    font-size: 0.95em;
+    color: var(--darker-base-text-color);
+    margin-bottom: 40px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: calc( var(--navbar-height) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: color 1s ease;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 400px;
+    height: var(--navbar-height);
+    background-color: var(--navbar-bg-color);
+    border-radius: 0.5rem;
+    border: 1px solid var( --navbar-border-color ); /* */
+    box-shadow: 2px 2px 5px 0 rgba(195, 189, 189, 0.4); /* */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    padding-left: 1.6rem;
+    padding-right: 2rem;
+    transition: color 1s ease;
+}
+
+
+    .navbar li {
+        list-style-type: none;
+    }
+
+        .navbar li a {
+            text-decoration: none;
+            color: var(--base-text-color);
+            transition: all 0.3s ease;
+        }
+
+            .navbar li a:hover, .navbar li i:hover {
+                cursor: var(--pointer-url),auto;
+                color: var(--navbar-highlight);
+                text-shadow: 2px 2px 10px var(--navbar-highlight);
+                scale: 1.1;
+            }
+
+            .navbar li a.active {
+                color: var(--navbar-active-color);
+            }
+
+#dark-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: var(--pointer-url),auto;
+    padding: 10px;
+    color: var(--base-text-color);
+}
+    #dark-toggle i {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+#form1,
+#head-navbar {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}

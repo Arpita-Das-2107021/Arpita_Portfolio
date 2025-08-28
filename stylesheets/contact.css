@@ -1,0 +1,213 @@
+﻿#contact-section, .contact-info-form {
+    width: 100%;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    margin-bottom: 5rem;
+    padding: 3rem;
+}
+#MainContentPlaceHolder_ucContact_up1 {
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: min(10vw,20px);
+    margin-top: 4rem;
+}
+
+
+    .formFun {
+        background-color: var(--contact-card-bg);
+        padding: 3% 3%;
+        border-radius: 20px;
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+
+        .formFun h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+    .input-fields {
+        width: 290px;
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+        .input-fields input {
+            width: 288px;
+        }
+
+        .input-fields span {
+            /*    width: 2px;*/
+        }
+
+        .input-fields input,
+        .input-fields textarea {
+            width: 288px;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-fields textarea {
+            /*        resize: none;*/
+            /*        overflow-y: scroll;*/
+            min-height: 100px;
+            max-width: 288px;
+            min-width: 288px;
+        }
+
+    .error {
+        font-size: 12px;
+        color: red;
+        margin-top: 4px;
+    }
+
+    .formFun img {
+        width: 288px;
+        height: auto;
+        max-height: 120px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+
+.formFun button {
+    width: 288px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--contact-card-btn-bg);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: var(--pointer-url),auto;
+}
+
+    .formFun button:hover {
+        background-color: var(--contact-btn-hover);
+    }
+
+    .contact-info {
+        max-width: 50%;
+        color: var(--base-text-color);
+        padding: 4rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
+
+            .contact-info h2 span {
+                color: var(--contact-text);
+            }
+
+    .info-list {
+        list-style: none;
+        margin-bottom: 2rem;
+    }
+
+        .info-list li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .info-list i {
+            margin-right: 10px;
+            color: var(--contact-i-color);
+            transition: color 1s ease;
+            transition: color 1s ease;
+        }
+
+        .info-list a {
+            text-decoration: none;
+            color: var(--contact-text);
+            cursor: var(--pointer-url),auto;
+            transition: color 1s ease;
+        }
+
+        .info-list i:hover, .info-list a:hover {
+            color: var(--contact-i-highlight);
+            scale: 1.2;
+            filter: brightness(5px);
+        }
+
+
+    .social-icons {
+        font-size: 1.5rem;
+    }
+
+        .social-icons i {
+            margin-right: 15px;
+            cursor: var(--pointer-url),auto;
+            color: var(--contact-i-color);
+            transition: color 1s ease;
+        }
+
+            .social-icons i:hover {
+                color: var(--contact-i-highlight);
+                scale: 1.2;
+                box-shadow: 2px 2px 5px 0 var(--base-text-color);
+                border-radius: 50%;
+            }
+
+.contact-info,
+.formFun {
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.77,0,0.175,1);
+    will-change: opacity, transform;
+}
+
+    .contact-info.slide-in-left { 
+        opacity: 1;
+        transform: translateX(0);
+        animation: slideInLeft 0.8s forwards;
+    }
+
+    .formFun.slide-in-right {
+        opacity: 1;
+        transform: translateX(0);
+        animation: slideInRight 0.8s forwards;
+    }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

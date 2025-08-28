@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BaseWrapper.master.cs" Inherits="finalPortfolio.BaseWrapper" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Arpita Das portfolio">
+    <meta name="keywords" content="Arpita Das, Portfolio, Software Engineer, Machine Learning Engineer, ML Engineer, Data Engineer, Web Developer, ASP.NET, SQL Server">
+    <meta name="author" content="Arpita Das">
+    <title>Arpita Das</title>
+    <link rel="icon" href="/assets/bluesky2.svg" alt="Portfolio logo of Arpita Das" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="/stylesheets/master_navbar.css" />
+    <link rel="stylesheet" href="/stylesheets/master_sky.css" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <link rel="stylesheet" href="/stylesheets/skills.css" />
+    <link rel="stylesheet" href="/stylesheets/project.css" />
+    <link rel="stylesheet" href="/stylesheets/education.css" />
+    <link rel="stylesheet" href="/stylesheets/contact.css" />
+    <link rel="stylesheet" href="/stylesheets/note.css" />
+    <link rel="stylesheet" href="/stylesheets/responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="splash" class="splash-screen">Arpita Das</div>
+    <header id="head-navbar">
+        <nav>
+            <ul class="navbar" id="navbar">
+                <li><a href="/home" data-route="/home">Home</a></li>
+                <li><a href="/skills" data-route="/skills">Skills</a></li>
+                <li><a href="/projects" data-route="/projects">Projects</a></li>
+                <li><a href="/education" data-route="/education">Education</a></li>
+                <li><a href="/contact" data-route="/contact">Contact</a></li>
+                <li><a id="dark-toggle"><i class="fa-solid fa-moon"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <form id="form1" runat="server">
+        <div class="sky">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="baseWrapper.js"></script>
+</body>
+</html>
