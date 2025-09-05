@@ -2,8 +2,11 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.Mail;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace Portfolio
 {
@@ -18,15 +21,41 @@ namespace Portfolio
 
             if (!IsPostBack)
             {
-                if (Session["IsAdmin"] != null && (bool)Session["IsAdmin"])
+                // Pre-fill username and password if cookies exist
+                if (Request.Cookies["AdminUser"] != null)
                 {
-                    ShowAdminPanel();
-                    BindNotes();
+                    txtUser.Text = Request.Cookies["AdminUser"].Value;
+                    chkRememberMe.Checked = true;
+                }
+                if (Request.Cookies["AdminPass"] != null)
+                {
+                    txtPass.Attributes["value"] = Request.Cookies["AdminPass"].Value;
+                    chkRememberMe.Checked = true;
+                }
+
+                if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
+                {
+                    if (Request.Cookies["AuthToken"] != null)
+                    {
+                        string cookieToken = Request.Cookies["AuthToken"].Value;
+                        string storedToken = Application["AuthToken_" + ConfigurationManager.AppSettings["AdminUser"]] as string;
+
+                        if (cookieToken == storedToken)
+                        {
+                            Session["IsAdmin"] = true;
+                            ShowAdminPanel();
+                            BindNotes();
+                            return;
+                        }
+                    }
+
+                    pnlLogin.Visible = true;
+                    btnLogout.Visible = false;
                 }
                 else
                 {
-                    pnlLogin.Visible = true;
-                    btnLogout.Visible = false;
+                    ShowAdminPanel();
+                    BindNotes();
                 }
             }
         }
@@ -39,6 +68,35 @@ namespace Portfolio
             if (txtUser.Text == user && txtPass.Text == pass)
             {
                 Session["IsAdmin"] = true;
+
+                if (chkRememberMe.Checked)
+                {
+                    // Generate token
+                    string token = Guid.NewGuid().ToString();
+                    Application["AuthToken_" + txtUser.Text] = token;
+                    HttpCookie authCookie = new HttpCookie("AuthToken", token);
+                    authCookie.Expires = DateTime.Now.AddDays(30);
+                    Response.Cookies.Add(authCookie);
+
+                    // Store username and password in cookies
+                    Response.Cookies["AdminUser"].Value = txtUser.Text;
+                    Response.Cookies["AdminUser"].Expires = DateTime.Now.AddDays(30);
+                    Response.Cookies["AdminPass"].Value = txtPass.Text;
+                    Response.Cookies["AdminPass"].Expires = DateTime.Now.AddDays(30);
+                }
+                else
+                {
+                    // Remove cookies if not remembering
+                    if (Request.Cookies["AdminUser"] != null)
+                    {
+                        Response.Cookies["AdminUser"].Expires = DateTime.Now.AddDays(-1);
+                    }
+                    if (Request.Cookies["AdminPass"] != null)
+                    {
+                        Response.Cookies["AdminPass"].Expires = DateTime.Now.AddDays(-1);
+                    }
+                }
+
                 ShowAdminPanel();
             }
             else
@@ -46,13 +104,47 @@ namespace Portfolio
                 lblMsg.Text = "Invalid login!";
             }
         }
+        protected void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+            string adminEmail = ConfigurationManager.AppSettings["GmailUsername"];
+            string pass = ConfigurationManager.AppSettings["AdminPass"];
 
+            string subject = "Password Reset Request";
+            string body = "Your password is: "+ pass;
+
+            try
+            {
+                               // Read from web.config
+                string smtpUser = ConfigurationManager.AppSettings["GmailUsername"];
+                string smtpPass = ConfigurationManager.AppSettings["GmailPassword"];
+
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress(smtpUser);
+                mailMessage.To.Add(smtpUser);
+                mailMessage.Subject = subject;
+                mailMessage.Body = body;
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.Credentials = new System.Net.NetworkCredential(smtpUser, smtpPass);
+                smtpClient.Send(mailMessage);
+
+                lblMsg.Text = "Password reset email sent.";
+            }
+            catch (Exception ex)
+            {
+                lblMsg.Text = "Error sending email: " + ex.Message;
+            }
+        }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();
             Response.Redirect("MainContent.aspx");
         }
-
+        protected void btnPortfolio_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainContent.aspx");
+        }
         private void ShowAdminPanel()
         {
             pnlLogin.Visible = false;
