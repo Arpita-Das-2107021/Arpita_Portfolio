@@ -139,6 +139,14 @@ namespace Portfolio
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();
+            string[] adminCookies = { "AdminUser", "AdminPass", "AuthToken" };
+            foreach (string cookieName in adminCookies)
+            {
+                if (Request.Cookies[cookieName] != null)
+                {
+                    Response.Cookies[cookieName].Expires = DateTime.Now.AddDays(-1);
+                }
+            }
             Response.Redirect("MainContent.aspx");
         }
         protected void btnPortfolio_Click(object sender, EventArgs e)
