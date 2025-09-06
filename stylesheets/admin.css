@@ -115,13 +115,89 @@ body {
     background: var(--selection-bg-color);
     color: var(--selection-color);
 }
-#form1{
+#form1,#up2{
     width: 100%;
 }
 .container {
     width: 60%;
     margin: 40px auto;
     padding: 20px;
+}
+
+/* ========== SKILLS LIST ========== */
+.skill {
+    background: #232426;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .skill strong {
+        color: var(--dark-highlight, #82B4FF);
+    }
+
+/* ========== NOTES LIST ========== */
+.note-admin {
+    background: #232426;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.note-info{
+    width: 100% !important;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    gap: 5px;
+/*    justify-content: space-between;*/
+}
+.note-delete{
+    margin-left: auto;
+}
+
+.note-admin strong {
+    color: var(--light-highlight, #B2D3EB);
+}
+
+.note-image {
+    display: block;
+    margin-top: 8px;
+    max-width: 80%;
+    background: white; /* White canvas look */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+
+
+@media (max-width: 700px) {
+    .admin-wrapper {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        flex-direction: row;
+        min-width: unset;
+        padding: 0;
+        justify-content: space-around;
+    }
+
+        .admin-sidebar button {
+            padding: 10px 5px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+    .admin-content {
+        padding: 15px;
+    }
 }
 
 
@@ -151,6 +227,9 @@ body {
         font-size: 1rem;
     }
 
+.rememberMe{
+    margin-bottom: 10px;
+}
 /* ========== BUTTONS ========== */
 .btn,
 .btn-edit,
@@ -228,7 +307,6 @@ body {
         box-shadow: none;
         outline: none;
     }
-
 /* ========== ADMIN PANEL ========== */
 #pnlAdmin {
     margin-top: 30px;
@@ -264,57 +342,8 @@ body {
     color: #fff;
 }
 
-/* ========== SKILLS LIST ========== */
-.skill {
-    background: #232426;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-    .skill strong {
-        color: var(--dark-highlight, #82B4FF);
-    }
 
-/* ========== NOTES LIST ========== */
-.note-admin {
-    background: #232426;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.note-info{
-    width: 100% !important;
-    padding-left: 5%;
-    padding-right: 5%;
-    display: flex;
-    gap: 5px;
-/*    justify-content: space-between;*/
-}
-.note-delete{
-    margin-left: auto;
-}
-
-.note-admin strong {
-    color: var(--light-highlight, #B2D3EB);
-}
-
-.note-image {
-    display: block;
-    margin-top: 8px;
-    max-width: 80%;
-    background: white; /* White canvas look */
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 4px;
-}
-/* ...existing styles above... */
 
 /* ========== ADMIN DASHBOARD LAYOUT ========== */
 .admin-dashboard-header {
@@ -359,377 +388,90 @@ body {
     padding: 30px;
 }
 
-@media (max-width: 700px) {
-    .admin-wrapper {
-        flex-direction: column;
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Make .container full width on small screens */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+}
+
+    @media (max-width: 950px) {
+        .container {
+            width: 95%;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        #pnlLogin, #pnlAdmin {
+            padding: 15px;
+        }
+
+            .skill .input {
+                width: 100%;
+                font-size: 0.95rem;
+            }
+
+        .skill .btn, .skill .btn-logout {
+            width: 100%;
+            font-size: 0.95rem;
+            padding: 10px 0;
+        }
+        .skill .btn-edit, .skill .btn-delete {
+            width: 30%;
+        }
+            .skill {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 8px;
+            }
+
+        .admin-dashboard-header {
+            font-size: 1.3rem;
+            margin: 15px 0 10px 0;
+        }
     }
 
-    .admin-sidebar {
-        flex-direction: row;
-        min-width: unset;
-        padding: 0;
-        justify-content: space-around;
-    }
+    /* Further reduce padding and font size for very small screens */
+    @media (max-width: 500px) {
+        .container {
+            width: 100%;
+            margin: 10px auto;
+            padding: 5px;
+        }
+        .skill .input, .btn, .btn-edit, .btn-delete, .btn-logout {
+            width: 80%;
+            font-size: 0.95rem;
+        }
+         #pnlAdmin {
+            padding: 8px;
+        }
+
+        .admin-content {
+            padding: 8px;
+        }
+        .admin-sidebar{
+            padding: 5%;
+        }
 
         .admin-sidebar button {
-            padding: 10px 5px;
+            font-size: 0.85rem;
+            padding: 8px 2px;
+        }
+
+        .admin-dashboard-header {
+            font-size: 1rem;
+        }
+        .btn, .btn-logout {
+            width: 100%;
             font-size: 0.95rem;
-            text-align: center;
+            padding: 10px 0;
         }
 
-    .admin-content {
-        padding: 15px;
-    }
-}
-
-/*============Responsiveness===============*/
-:root {
-    /*    fonts*/
-    --h2-font-size: 1.7rem;
-    --h3-font-size: 1.5rem;
-    --p-font-size: 0.95rem;
-    --span-font-size: 2rem;
-    /*    selection*/
-    --selection-color: #cdcdcd;
-    --selection-bg-color: #99cef;
-    /*navbar*/
-    --star-diameter: 2px;
-    --footer-height: 3.5rem;
-    --navbar-height: 3.5rem;
-    --navbar-active-color: var(--dark-highlight);
-    --navbar-highlight: var(--dark-highlight);
-    --navbar-bg-color: rgba(43, 43, 43, 0.8);
-    --navbar-border-color: rgba(172, 166, 166, 0.5);
-    /*    url*/
-    --cursor-url: url('/assets/cursor_blue_gradient_32.png');
-    --pointer-url: url("/assets/pointer_blue_filled_24.png");
-    /*    colors    */
-    --star-color: white;
-    --body-bg-color: #111;
-    --splash-bg-color: #111;
-    --base-text-color: white;
-    --darker-base-text-color: #b0b0b0;
-    --dark-highlight: #82B4FF; /* #67CEFA;  */
-    --light-highlight: #B2D3EB;
-    /*    home*/
-    --text-anime-color: #98b8ec;
-    --border-anime-color: blue;
-    --code-card-bg: #161b22;
-    --code-card-text: #c9d1d9;
-    --hover-rgba: rgba(255, 255, 255, 0.1); /*gray*/
-    --img-border: gray;
-    --hero-i-color: var(--dark-highlight);
-    --hero-i-highlight: white;
-    /*            skills*/
-    --my-skill-edu-text: var(--light-highlight);
-    --tech-card-bg: #1a1a1a;
-    --tech-icon-border: rgb(52, 50, 50);
-    /*            education*/
-    --tab-text-active: var(--base-text-color);
-    --education-box-bg: #1a1a1a;
-    --education-tab-bg: #1e1e1e;
-    --tab-btn-active: var(--dark-highlight);
-    --education-tick-bg: #0f0f0f;
-    --education-vertical-line: var(--dark-highlight);
-    --education-link-color: #88aaff;
-    --education-link-hover: #78c7e2;
-    --education-link-visited: #9ecada;
-    --scrollbar-thumb-color: #444;
-    --scrollbar-bg-color: transparent; /*#1a1a1a;;*/
-    /*contact*/
-    --contact-text: var(--dark-highlight);
-    --contact-card-bg: var(--dark-highlight);
-    --contact-card-btn-bg: #657bbe;
-    --contact-i-color: var(--hero-i-color);
-    --contact-i-highlight: var(--hero-i-highlight);
-    --contact-btn-hover: #8493c2;
-    /*            contact*/
-    --footer-bg-color: #1e293b;
-    --footer-text-color: #cbd5e1;
-    --footer-box-shadow: rgba(0, 0, 0, 0.1);
-    --canvas-topbar-bg: #232426;
-    --canvas-counter-bg: #2c2d31;
-    --canvas-notebtn-bg: #232426;
-    --canvas-notebtn-border: #333;
-    --open-note-btn-hover: var(--canvas-notebtn-border);
-    --notes-board-bg: rgba(20,21,23,0.5);
-    --notes-board-border: #222;
-    --notes-card-bg: #232426;
-    --notes-card-box: #000a;
-    --notes-card-hover: #000c;
-    --note-name-color: gray;
-    --note-msg-color: #f3f4f6;
-    --modal-bg: rgba(20,21,23,0.88);
-    --modal-content-bg: #222326;
-    --modal-content-box: #000e;
-    --color-btn-border: #444;
-    --color-btn-hover: #fff;
-    --tool-btn-bg: #232426;
-    --tool-btn-color: #fff;
-    --tool-btn-border: #333;
-    --tool-btn-hover: #38393d;
-    --brush-color: #facc15;
-    --name-msg-input-bg: #232426;
-    --name-msg-input-text: #fff;
-    --leave-btn-bg: gray;
-    --leave-btn-text: #fff;
-    --leave-btn-border: gray;
-    --cancel-btn-bg: #232426;
-    --cancel-btn-text: #fff;
-    --cancel-btn-border: #333;
-    --cancel-btn-hover: rgba(99, 93, 93,0.5);
-}
-/* ========== GLOBAL STYLES ========== */
-html {
-    cursor: var(--cursor-url), auto;
-}
-
-body {
-    min-height: 100vh;
-    width: 100%;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--body-bg-color, #111);
-    color: var(--base-text-color, #fff);
-    margin: 0;
-    padding: 0;
-    cursor: var(--cursor-url), auto;
-
-}
-
-#form1 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-    width: 60%;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-
-/* ========== LOGIN PANEL ========== */
-#pnlLogin {
-    background: var(--education-box-bg, #1a1a1a);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-    #pnlLogin h2 {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-        color: var(--dark-highlight, #82B4FF);
-    }
-
-    #pnlLogin .input {
-        width: 80%;
-        padding: 10px;
-        margin: 8px 0;
-        border-radius: 8px;
-        border: 1px solid #333;
-        background: #232426;
-        color: #fff;
-        font-size: 1rem;
-    }
-/*.remMe,.rememberMe {
-    color: gray;
-}*/
-.rememberMe{
-    margin-bottom: 10px;
-}
-/* ========== BUTTONS ========== */
-.btn,
-.btn-edit,
-.btn-delete,
-.btn-logout {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    margin: 4px;
-}
-
-.btn {
-    width: 50%;
-    background: var(--dark-highlight, #82B4FF);
-    color: #fff;
-}
-
-    .btn:hover {
-        background: var(--contact-btn-hover, #8493c2);
-        cursor: var(--pointer-url),auto;
-    }
-
-.btn-edit {
-    background: #4caf50;
-    color: white;
-}
-
-    .btn-edit:hover {
-        background: #45a049;
-        cursor: var(--pointer-url),auto;
-    }
-
-.btn-delete {
-    background: #d9534f;
-    color: white;
-}
-
-    .btn-delete:hover {
-        background: #c9302c;
-        cursor: var(--pointer-url),auto;
-    }
-
-.btn-logout {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: var(--dark-highlight, #82B4FF);
-    color: #fff;
-}
-
-    .btn-logout:hover {
-        background: #e67e22;
-        background: var(--contact-btn-hover, #8493c2);
-        cursor: var(--pointer-url),auto;
-    }
-
-/* ========== ADMIN PANEL ========== */
-#pnlAdmin {
-    margin-top: 30px;
-    background: var(--education-box-bg, #1a1a1a);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-    #pnlAdmin h2 {
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-        color: var(--dark-highlight, #82B4FF);
-        border-bottom: 1px solid #333;
-        padding-bottom: 5px;
-    }
-
-    #pnlAdmin h3 {
-        font-size: 1.3rem;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        color: var(--light-highlight, #B2D3EB);
-    }
-
-/* ========== INPUTS ========== */
-.input {
-    width: 250px;
-    padding: 8px;
-    margin: 6px 4px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background: #232426;
-    color: #fff;
-}
-
-/* ========== SKILLS LIST ========== */
-.skill {
-    background: #232426;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-    .skill strong {
-        color: var(--dark-highlight, #82B4FF);
-    }
-
-/* ========== NOTES LIST ========== */
-.note-admin {
-    background: #232426;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.note-info {
-    width: 100% !important;
-    padding-left: 5%;
-    padding-right: 5%;
-    display: flex;
-    gap: 5px;
-    /*    justify-content: space-between;*/
-}
-
-.note-delete {
-    margin-left: auto;
-}
-
-.note-admin strong {
-    color: var(--light-highlight, #B2D3EB);
-}
-
-.note-image {
-    display: block;
-    margin-top: 8px;
-    max-width: 80%;
-    background: white; /* White canvas look */
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 4px;
-}
-
-/* ========== ADMIN DASHBOARD LAYOUT ========== */
-.admin-dashboard-header {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 30px 0 20px 0;
-}
-
-.admin-wrapper {
-    display: flex;
-    min-height: 80vh;
-}
-
-.admin-sidebar {
-    min-width: 180px;
-    background: #222;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    padding: 30px 0;
-}
-
-    .admin-sidebar button {
-        background: none;
-        border: none;
-        color: #fff;
-        padding: 15px 20px;
-        text-align: left;
-        font-size: 1rem;
-        cursor: pointer;
-        width: 100%;
-        transition: background 0.2s;
-    }
-
-        .admin-sidebar button:hover, .admin-sidebar .active {
-            background: #444;
+        .skill .btn-edit, .skill .btn-delete {
+            width: 30%;
         }
-
-.admin-content {
-    flex: 1;
-    padding: 30px;
-}
-
-/*============Responsiveness===============*/
-
+    }
